@@ -1,21 +1,15 @@
+ <form method="post" action="">
+ 	tinggi : <br><input type="text" name="tinggi"><br>
+ 	berat badan : <br><input type="text" name="beratbadan"><br>
+ 	jenis kelamin : <br><input type="radio" name="jk" value="laki laki">laki laki<br><input type="radio" name="jk" value="perempuan">perempuan<br>
+<input type="submit" name="submit"> </form>
+
 <?php
-class Kelas{
-    protected $jumlah;
-    public function belajar(){
-       echo "Sedang belajar <br>";
-    }
-    public function tampil_jumlah(){
-        echo "Jumlah mahasiswa adalah ".$this->jumlah."<br>";
-    }
-}
-class StudyGroup extends Kelas{
-    public function setjumlah($jumlah){
-        $this->jumlah = $jumlah;
-    }
+include "berat.php";
+$hasil = new berat();
+if (isset($_POST['submit'])) {
+	$hasil->beratideal($_POST['tinggi'],$_POST['beratbadan'],$_POST['jk']);
+	echo $hasil->beratideal();
 }
 
-$d34102 = new StudyGroup();
-//$d34102->jumlah = 5;
-$d34102->setjumlah(20);
-$d34102->tampil_jumlah();
 ?>
